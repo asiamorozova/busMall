@@ -1,6 +1,6 @@
 
 
-const productData = [
+export const productData = [
 
     {
         id: 'bag',
