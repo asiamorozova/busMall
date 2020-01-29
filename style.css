@@ -1,6 +1,19 @@
 
-
+header{
+    display: flex;
+    font-variant: small-caps;
+    background-color: blanchedalmond;
+    
+}
 #product-container{
     font-family: 'Times New Roman';
 
+}
+.products-container{
+    flex-wrap: wrap;
+    
+}
+.img{
+    width: 100px;
+    height: 150px;
 }

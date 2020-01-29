@@ -33,8 +33,9 @@ const displayThreeProducts = () =>{
    
    //randonm number 
     const randomINdex = math.floor(Math.random() * productsData.lenght);
-    const randomProduct = productData[randomNumnber];
-   
+    const randomProduct = productData///////
+    ///randomNumnber]//
+   ///
 
     function randomProduct (productData):
     //something to append it to 

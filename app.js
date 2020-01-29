@@ -1,11 +1,14 @@
 
-import products from './products.js';
+import { productData } from './products.js';
 
 
-const productsData = products.slice();
+
+
+
+const productsData = productData.slice();
 
 function findById(items, id) {
-    for (let i = 0; i < items.lenght; i++) {
+    for (let i = 0; i < items.length; i++) {
         const item = items[i];
         if (item.id === id) {
             return item;
@@ -17,15 +20,14 @@ function findById(items, id) {
 //keep track of how many times a user has voted (up to 25)
 //keep track of votes 
 
-let totalVotes
+let totalVotes = 0;
+let productVoteDetails = [];
 
 const initializeState = () => {
     let totalVotes = 0;
     let productVoteDetail = [];
 
 };
-
-initializeState();
 
 //display random products (no duplicates)
 //display three new products and refresh products between votes 
@@ -58,31 +60,40 @@ const displayThreeProducts = () => {
     radio2.value = product2.id;
     radio3.value = product3.id;
 
+    image1.src = product1.image;
+    image2.src = product2.image;
+    image3.src = product3.image;
+
     randomProduct1.textContent = product1.name;
     randomProduct2.textContent = product2.name;
     randomProduct3.textContent = product3.name;
-};
-const form = document.querySelector('form');
 
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
+    const form = document.querySelector('form');
 
-    const formData = new formData(form);
+    //console.log(form);
 
-    const selectProductId = formData.get('product');
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
 
-    totalVotes++;
-    //if an item has been voted for before 
-    const productInVotesArray = findById(productVoteDetails, selectProductId);
+        const formData = new FormData(form);
 
-    if (productInVotesArray) {
-        productInVotesArray.votes++;
-    } else {
-        productVoteDetails.push({
-            id: selectProductId,
-            votes: 1,
-        });
-    }
+        const selectProductId = formData.get('product');
+
+        totalVotes++;
+
+        const productInVotesArray = findById(productVoteDetails, selectProductId);
+
+        if (productInVotesArray) {
+            productInVotesArray.votes++;
+        } else {
+            productVoteDetails.push({
+                id: selectProductId,
+                votes: 1,
+            });
+        }
+
+    });
+
 
     document.querySelector('input[name = "product"]:checked').checked = false;
 
@@ -94,37 +105,18 @@ form.addEventListener('submit', (e) => {
 
     displayThreeProducts();
 
-});
 
-function reset() {
-    initializeState();
-}
+    function reset() {
+        initializeState();
+    }
 
-function getRandomProduct(someProducts) {
-    const randomIndex = Math.floor(Math.random() * someProducts.length);
-    cont randomProduct = productsData[randomIndex];
+    function getRandomProduct(someProducts) {
+        const randomIndex = Math.floor(Math.random() * someProducts.length);
+        const randomProduct = productsData[randomIndex];
 
-    return randomProduct;
+        return randomProduct;
+    }
 
-}
-
-
+    displayThreeProducts();
 
 
-
-
-
-
-
-
-//if an item has been voted for before 
-
-
-//event listener 
-//when they select a product, update the total votes 
-//update the productVoteDetails 
-//if there are votes for an item, increment the votes in the array 
-//if there's no votes for an item, push item into array 
-
-//reset the whole app when finished 
-    //set the votes array ([]) amd total votes (0) to their initial states 
