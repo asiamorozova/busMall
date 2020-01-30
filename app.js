@@ -52,13 +52,17 @@ const displayThreeProducts = () => {
     const radio2 = document.getElementById('product2');
     const radio3 = document.getElementById('product3');
 
-    const randomProduct1 = document.getElementById('randomProduct1');
-    const randomProduct2 = document.getElementById('randomProduct2');
-    const randomProduct3 = document.getElementById('randomProduct3');
+    const randomProduct1 = document.getElementById('description1');
+    const randomProduct2 = document.getElementById('description2');
+    const randomProduct3 = document.getElementById('description3');
 
-    radio1.value = product1.id;
-    radio2.value = product2.id;
-    radio3.value = product3.id;
+    const image1 = document.getElementById('image1');
+    const image2 = document.getElementById('image2');
+    const image3 = document.getElementById('image3');
+
+    // radio1.value = product1.id;
+    // radio2.value = product2.id;
+    // radio3.value = product3.id;
 
     image1.src = product1.image;
     image2.src = product2.image;
@@ -68,55 +72,56 @@ const displayThreeProducts = () => {
     randomProduct2.textContent = product2.name;
     randomProduct3.textContent = product3.name;
 
-    const form = document.querySelector('form');
 
-    //console.log(form);
+};
+//console.log(form);
 
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
+const form = document.querySelector('form');
+const submit = document.getElementById('next-button');
 
-        const formData = new FormData(form);
+form.addEventListener(submit, (e) => {
+    e.preventDefault();
 
-        const selectProductId = formData.get('product');
+    const formData = new FormData(form);
 
-        totalVotes++;
+    const selectProductId = formData.get('product');
 
-        const productInVotesArray = findById(productVoteDetails, selectProductId);
+    totalVotes++;
 
-        if (productInVotesArray) {
-            productInVotesArray.votes++;
-        } else {
-            productVoteDetails.push({
-                id: selectProductId,
-                votes: 1,
-            });
-        }
+    const productInVotesArray = findById(productVoteDetails, selectProductId);
 
-    });
-
-
-    document.querySelector('input[name = "product"]:checked').checked = false;
-
-    localStorage.setItem('votes', JSON.stringify(productVoteDetails));
-
-    if (totalVotes >= 3) {
-        window.location = 'results.html';
+    if (productInVotesArray) {
+        productInVotesArray.votes++;
+    } else {
+        productVoteDetails.push({
+            id: selectProductId,
+            votes: 1,
+        });
     }
 
-    displayThreeProducts();
+});
 
 
-    function reset() {
-        initializeState();
-    }
+// document.querySelector('input[name = "product"]:checked').checked = false;
 
-    function getRandomProduct(someProducts) {
-        const randomIndex = Math.floor(Math.random() * someProducts.length);
-        const randomProduct = productsData[randomIndex];
+localStorage.setItem('votes', JSON.stringify(productVoteDetails));
 
-        return randomProduct;
-    }
+if (totalVotes >= 3) {
+    window.location = 'results.html';
+}
 
-    displayThreeProducts();
+
+function reset() {
+    initializeState();
+}
+
+function getRandomProduct(someProducts) {
+    const randomIndex = Math.floor(Math.random() * someProducts.length);
+    const randomProduct = productsData[randomIndex];
+
+    return randomProduct;
+}
+
+displayThreeProducts();
 
 

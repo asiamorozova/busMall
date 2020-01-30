@@ -17,7 +17,7 @@ export const productData = [
     {
         id: 'bathroom',
         name: 'Bathroom Stand',
-        image: '../assets.bathroom.jpg'
+        image: '../assets/bathroom.jpg'
 
     },
     {
@@ -81,7 +81,7 @@ export const productData = [
     {
         id: 'sweep',
         name: 'Baby Sweep',
-        image: '../assets/sweep.jpg'
+        image: '../assets/sweep.png'
     },
     {
         id: 'tauntaun',
@@ -96,7 +96,7 @@ export const productData = [
     {
         id: 'usb',
         name: 'Tentacle USB',
-        image: '../assets/usb.jpg'
+        image: '../assets/usb.gif'
     },
     {
         id: 'water-can',

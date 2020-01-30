@@ -5,15 +5,21 @@ header{
     background-color: blanchedalmond;
     
 }
-#product-container{
+#products-container{
     font-family: 'Times New Roman';
+    display: flex;
+    justify-content: left;
+    
 
-}
-.products-container{
-    flex-wrap: wrap;
+    
+
+
     
 }
-.img{
-    width: 100px;
-    height: 150px;
+img{
+    width: 150px;
+    height: 175px;
+    border-color: chocolate;
+    border-radius: 14px;
+    border-style: groove;
 }
