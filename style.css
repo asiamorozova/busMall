@@ -3,6 +3,7 @@ header{
     display: flex;
     font-variant: small-caps;
     background-color: blanchedalmond;
+    margin-right: 890px;
     
 }
 #products-container{
@@ -10,10 +11,6 @@ header{
     display: flex;
     justify-content: left;
     
-
-    
-
-
     
 }
 img{

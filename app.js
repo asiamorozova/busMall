@@ -2,9 +2,6 @@
 import { productData } from './products.js';
 
 
-
-
-
 const productsData = productData.slice();
 
 function findById(items, id) {
@@ -56,13 +53,9 @@ const displayThreeProducts = () => {
     const randomProduct2 = document.getElementById('description2');
     const randomProduct3 = document.getElementById('description3');
 
-    const image1 = document.getElementById('image1');
-    const image2 = document.getElementById('image2');
-    const image3 = document.getElementById('image3');
-
-    // radio1.value = product1.id;
-    // radio2.value = product2.id;
-    // radio3.value = product3.id;
+    //const image1 = document.getElementById('image1');
+    //const image2 = document.getElementById('image2');
+    //const image3 = document.getElementById('image3');
 
     image1.src = product1.image;
     image2.src = product2.image;
