@@ -1,0 +1,22 @@
+
+header{
+    display: flex;
+    font-variant: small-caps;
+    background-color: blanchedalmond;
+    margin-right: 600px;
+    
+}
+#products-container{
+    font-family: 'Times New Roman';
+    display: flex;
+    justify-content: left;
+    
+    
+}
+img{
+    width: 150px;
+    height: 175px;
+    border-color: chocolate;
+    border-radius: 14px;
+    border-style: groove;
+}

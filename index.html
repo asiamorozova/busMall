@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <h1>Product Preference Quiz</h1>
+    </header>
+
+    <main>
+
+        <section id="quiz-section">
+            <h2 id="product-name"></h2>
+
+            <form>
+
+                <div id="products-container">
+
+                    <label id="randomProduct1">
+                        <input id="product1" type="radio" name="product" value="">
+                        <img id="image1" src="">
+                        <p id="description1"></p>
+                    </label>
+
+                    <label id="randomProduct2">
+                        <input id="product2" type="radio" name="product" value="">
+                        <img id="image2" src="" >
+                        <p id="description2"></p>
+                    </label>
+
+                    <label id="randomProduct3">
+                        <input id="product3" type="radio" name="product" value="">
+                        <img id="image3" src="">
+                        <p id="description3"></p>
+                    </label>
+                </div>
+
+                <p id="next-container" class="hidden">
+                    <button id="next-button">Next</button>
+            </form>
+
+            </p>
+            </div>
+
+        </section>
+
+        <section id="stats-section" class="hidden">
+            <h2>Statistics</h2>
+
+        </section>
+    </main>
+
+    <script src="app.js" type="module"></script>
+
+</body>
+
+</html>
