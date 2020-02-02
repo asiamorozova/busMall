@@ -20,11 +20,6 @@ function findById(items, id) {
 let totalVotes = 0;
 let productVoteDetails = [];
 
-const initializeState = () => {
-    let totalVotes = 0;
-    let productVoteDetail = [];
-
-};
 
 //display random products (no duplicates)
 //display three new products and refresh products between votes 
@@ -45,17 +40,10 @@ const displayThreeProducts = () => {
 
     }
     //render these three items on the screen as radio buttons with the same name and different values 
-    const radio1 = document.getElementById('product1');
-    const radio2 = document.getElementById('product2');
-    const radio3 = document.getElementById('product3');
 
     const randomProduct1 = document.getElementById('description1');
     const randomProduct2 = document.getElementById('description2');
     const randomProduct3 = document.getElementById('description3');
-
-    //const image1 = document.getElementById('image1');
-    //const image2 = document.getElementById('image2');
-    //const image3 = document.getElementById('image3');
 
     image1.src = product1.image;
     image2.src = product2.image;
@@ -68,6 +56,7 @@ const displayThreeProducts = () => {
 
 };
 //console.log(form);
+
 
 const form = document.querySelector('form');
 const submit = document.getElementById('next-button');
@@ -94,15 +83,7 @@ form.addEventListener(submit, (e) => {
 
 });
 
-
-// document.querySelector('input[name = "product"]:checked').checked = false;
-
-localStorage.setItem('votes', JSON.stringify(productVoteDetails));
-
-if (totalVotes >= 3) {
-    window.location = 'results.html';
-}
-
+let initializeState;
 
 function reset() {
     initializeState();
@@ -114,7 +95,19 @@ function getRandomProduct(someProducts) {
 
     return randomProduct;
 }
+//document.querySelector('input[name = "product"]:checked').checked = false;
+//document.querySelector('input[name"product]:checked').checked = false;
+localStorage.setItem('votes', JSON.stringify(productVoteDetails));
+
+if (totalVotes === 4) {
+    window.location = 'results.html';
+}
 
 displayThreeProducts();
+
+
+
+
+
 
 
